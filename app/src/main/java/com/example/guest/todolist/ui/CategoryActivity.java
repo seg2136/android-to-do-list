@@ -36,7 +36,7 @@ public class CategoryActivity extends ListActivity {
     mNewTaskText = (EditText) findViewById(R.id.newTaskText);
     mTasks = new ArrayList<String>();
 
-    for ( Task task : Task.all() ) {
+    for ( Task task : mCategory.tasks() ) {
         mTasks.add(task.getDescription());
     }
 
