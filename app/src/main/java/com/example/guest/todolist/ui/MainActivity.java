@@ -26,11 +26,11 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mNewTaskButton = (Button) findViewById(R.id.taskSubmitButton);
+        mNewTaskButton = (Button) findViewById(R.id.newTaskButton);
         mNewTaskText = (EditText) findViewById(R.id.newTaskText);
-        mTasks = new ArrayList<>();
+        mTasks = new ArrayList<String>();
 
-        for (Task task : Task.all()) {
+        for ( Task task : Task.all() ) {
             mTasks.add(task.getDescription());
         }
 
