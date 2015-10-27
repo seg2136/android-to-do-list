@@ -13,16 +13,20 @@ import java.util.List;
 @Table(name = "Tasks", id = "_id")
 public class Task extends Model {
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String mDescription;
+
+    @Column(name = "category")
+    private Category mCategory;
 
     public Task() {
         super();
     }
 
-    public Task(String description) {
+    public Task(String description, Category category) {
         super();
         mDescription = description;
+        mCategory = category;
     }
 
     public String getDescription() {
