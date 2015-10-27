@@ -3,6 +3,7 @@ package com.example.guest.todolist;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -15,6 +16,7 @@ public class MainActivity extends ListActivity {
     private ArrayList<String> mTasks;
     private Button mNewTaskButton;
     private EditText mNewTaskText;
+    private ArrayAdapter<String> mAdaptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class MainActivity extends ListActivity {
         mNewTaskButton = (Button) findViewById(R.id.taskSubmitButton);
         mNewTaskText = (EditText) findViewById(R.id.newTaskText);
         mTasks = new ArrayList<>();
+        mAdaptor = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mTasks);
+        setListAdapter(mAdaptor);
 
         mNewTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +40,7 @@ public class MainActivity extends ListActivity {
     private void addTask() {
         String newTask = mNewTaskText.getText().toString();
         mTasks.add(newTask);
+        mAdaptor.notifyDataSetChanged();
     }
 
 }
